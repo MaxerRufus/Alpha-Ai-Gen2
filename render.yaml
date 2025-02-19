@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: alpha-ai-assistant
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn pythonprojectsem1:application
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.16
+      - key: SECRET_KEY
+        generateValue: true
+      - key: SPOTIFY_CLIENT_ID
+        sync: false
+      - key: SPOTIFY_CLIENT_SECRET
+        sync: false

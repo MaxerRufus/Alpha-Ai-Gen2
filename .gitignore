@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+.env
+.venv
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+
+# Spotify and API credentials
+*.env
+config.json
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
