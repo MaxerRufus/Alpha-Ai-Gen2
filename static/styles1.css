@@ -1,0 +1,464 @@
+/* Root Colors - Every element separated for maximum customization */
+:root {
+    /* Main Background Colors */
+    --main-background: #000000;           /* Main page background */
+    --secondary-background: #000000;      /* Secondary/container background spotify bg */ 
+    --hover-background: #000000;          /* Hover state background */
+    
+    /* Text Colors */
+    --main-text: #ffffff;                 /* Primary text color */
+    --secondary-text: #ffffff;            /* Secondary/muted text color */
+    
+    /* Border Colors */
+    --main-border: #000000;               /* Main border color */
+    
+    /* Sidebar Colors */
+    --sidebar-background: #000000;        /* Sidebar background new chat */
+    --sidebar-text: #ffffff;              /* Sidebar text color */
+    --sidebar-hover-bg: #3b367de5;            /* Sidebar border color */
+    --sidebar-border: #00000000;          /* Sidebar item hover background */
+    --sidebar-active-bg: #ffdd01;         /* Active sidebar item background */
+    --sidebar-active-border: #ffffff;     /* Active sidebar item indicator */
+    
+    /* Input Colors */
+    --input-background: #000000;          /* Input field background */
+    --input-text: #ffffff;               /* Input text color */
+    --input-border: #b80c6a;              /* Input border color */
+    --input-focus-bg: #000000;            /* Input focus background */
+    --input-focus-border: #51f63b;        /* Input focus border */
+    --input-placeholder: #000000;         /* Input placeholder text */
+    
+    /* Message Container Colors */
+    --message-background: #000000;        /* Message container background */
+    --message-border: #4a367d00;            /* Message container border */
+    --message-hover-bg: #4a367dcc;          /* Message hover background */
+    
+    /* Button Colors */
+    --button-primary-bg: #000000;        /* Primary button background */
+    --button-primary-text: #ffffff;       /* Primary button text */
+    --button-hover-bg: #4a367dcc;           /* Button hover background */
+    --button-secondary-bg: #ffffff;       /* Secondary button background */    /*sidebar button
+    
+    /* Spotify Player Colors */
+    --player-background: rgba(0, 0, 0, 0.98);  /* Player background */
+    --player-border: #ffffff;              /* Player border */
+    --player-shadow: rgba(0, 0, 0, 0.5);   /* Player shadow */
+    --track-name-color: #F8FAFC;           /* Track name color */
+    --artist-name-color: #94A3B8;          /* Artist name color */
+    --album-name-color: #94A3B8;           /* Album name color */
+    --progress-bar-bg: rgba(255, 255, 255, 0.1);  /* Progress bar background */
+    --progress-bar-fill: #ffffff;          /* Progress bar fill */
+    --control-button-color: #F8FAFC;       /* Control button color */
+    --control-button-hover: #423d9f;       /* Control button hover color */
+    --like-button-color: #F8FAFC;          /* Like button default color */
+    --like-button-active: #ff0000;         /* Like button active color */
+    
+    /* Toggle Button Colors */
+    --toggle-button-bg: #1E293B;           /* Toggle button background */
+    --toggle-button-border: #334155;       /* Toggle button border */
+    --toggle-button-hover: #3b367d;        /* Toggle button hover background */
+    
+    /* Tooltip Colors */
+    --tooltip-background: rgba(0, 0, 0, 0.9);  /* Tooltip background */
+    --tooltip-text: #F8FAFC;               /* Tooltip text color */
+    
+    /* Error Colors */
+    --error-background: rgba(239, 68, 68, 0.1);  /* Error message background */
+    --error-text: #EF4444;                 /* Error text color */
+    --error-border: #EF4444;               /* Error border color */
+    
+    /* Scrollbar Colors */
+    --scrollbar-track: #0F172A;            /* Scrollbar track color */
+    --scrollbar-thumb: #1E293B;            /* Scrollbar thumb color */
+    --scrollbar-thumb-hover: #2D3748;      /* Scrollbar thumb hover color */
+    
+    /* Selection Colors */
+    --selection-background: #690f968e;        /* Text selection background */
+    --selection-text: #F8FAFC;             /* Text selection text color */
+}
+
+/* Base Styles */
+body {
+    background-color: var(--main-background);
+    color: var(--main-text);
+}
+
+/* Animations */
+.message-enter {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.sidebar-item {
+    animation: slideIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Sidebar Styles */
+.sidebar {
+    background-color: var(--sidebar-background);
+    border-right: 1px solid var(--sidebar-border);
+}
+
+.sidebar-item {
+    background-color: var(--sidebar-background);
+    color: var(--sidebar-text);
+    border: 1px solid var(--sidebar-border); 
+    padding: 12px 16px;
+    transition: all 0.2s ease;
+}
+
+.sidebar-item:hover {
+    background-color: var(--sidebar-hover-bg);
+}
+
+.sidebar-item.active {
+    background-color: var(--sidebar-active-bg);
+    border-left: 3px solid var(--sidebar-active-border);
+}
+
+/* Input Box Styles */
+.input-box {
+    background-color: var(--input-background);
+    border: 1px solid var(--input-border);
+    color: var(--input-text);
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.input-box:focus {
+    background-color: var(--input-focus-bg);
+    border-color: var(--input-focus-border);
+    outline: none;
+}
+
+.input-box::placeholder {
+    color: var(--input-placeholder);
+}
+
+/* Message Container */
+.message-container {
+    background-color: var(--message-background);
+    border: 1px solid var(--message-border);
+    transition: all 0.2s ease;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.message-container:hover {
+    transform: translateX(5px);
+    background-color: var(--message-hover-bg);
+}
+
+/* Glass Effect */
+.glass-effect {
+    background: rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--main-border);
+}
+
+/* Tooltip */
+.tooltip {
+    position: absolute;
+    background: var(--tooltip-background);
+    color: var(--tooltip-text);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+    white-space: nowrap;
+    margin-bottom: 5px;
+}
+
+.action-btn:hover .tooltip {
+    opacity: 1;
+}
+
+/* Toggle Sidebar Button */
+#toggle-sidebar {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--button-primary-bg);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    z-index: 50;
+    color: var(--button-primary-text);
+}
+
+#toggle-sidebar:hover {
+    background: var(--button-hover-bg);
+}
+
+.sidebar-hidden {
+    transform: translateX(-100%);
+}
+
+/* Spotify Player Styles */
+.spotify-player {
+    position: fixed;
+    right: -320px;
+    top: 0;
+    width: 320px;
+    height: 100vh;
+    background: var(--player-background);
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+    box-shadow: -2px 0 10px var(--player-shadow);
+    border-left: 1px solid var(--player-border);
+}
+
+.spotify-player.active {
+    right: 0;
+}
+
+.player-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: var(--main-text);
+    background-color: var(--secondary-background);
+}
+
+.album-art-container {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin-bottom: 20px;
+}
+
+.album-art {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--player-shadow);
+    transition: opacity 0.3s ease-in-out;
+    object-fit: cover;
+}
+
+.track-info {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.track-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: var(--track-name-color);
+}
+
+.artist-name, .album-name {
+    font-size: 0.9rem;
+    color: var(--artist-name-color);
+}
+
+.progress-container {
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: var(--progress-bar-bg);
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: var(--progress-bar-fill);
+    border-radius: 2px;
+    transition: width 0.1s linear;
+}
+
+.time-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--secondary-text);
+    margin-top: 8px;
+}
+
+/* Player Controls */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.control-button {
+    background: none;
+    border: none;
+    color: var(--control-button-color);
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.2s;
+    padding: 10px;
+}
+
+.control-button:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    color: var(--control-button-hover);
+}
+
+.control-button.primary {
+    font-size: 1.5rem;
+}
+
+.control-button.secondary {
+    font-size: 1rem;
+}
+
+.like-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: var(--like-button-color);
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.2s;
+}
+
+.like-button:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.like-button.active {
+    color: var(--like-button-active);
+    opacity: 1;
+}
+
+/* Player Toggle Button */
+#toggle-player {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    background: var(--toggle-button-bg);
+    border: 1px solid var(--toggle-button-border);
+    border-radius: 50%;
+    color: var(--main-text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    transition: all 0.2s;
+}
+
+#toggle-player:hover {
+    background: var(--toggle-button-hover);
+    transform: scale(1.1);
+}
+
+/* Loading State */
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--main-text);
+}
+
+/* Error Message */
+.error-message {
+    background: var(--error-background);
+    color: var(--error-text);
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    display: none;
+    border: 1px solid var(--error-border);
+}
+
+/* Theme Toggle */
+#theme-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    background: var(--toggle-button-bg);
+    color: var(--main-text);
+    border: 1px solid var(--toggle-button-border);
+}
+
+#theme-toggle:hover {
+    background: var(--toggle-button-hover);
+    color: var(--main-text);
+}
+
+#theme-toggle i {
+    font-size: 1.2rem;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover);
+}
+
+/* Selection Style */
+::selection {
+    background-color: var(--selection-background);
+    color: var(--selection-text);
+} /* Add this to your CSS file */
+#mic-button {
+    transition: color 0.2s ease;
+}
+
+#mic-button:hover {
+    color: var(--send-btn-hover);
+}
+
+#mic-button.active {
+    color: var(--like-button-active);
+}

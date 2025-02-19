@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpha AI Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link id="theme-style" rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="bg-black h-screen flex">
+    <!-- Toggle Sidebar Button -->
+    <button id="toggle-sidebar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="w-64 bg-black p-4 flex flex-col transition-transform duration-300 ease-in-out fixed h-full z-40">
+        <div class="flex flex-col items-center mb-6">
+            <img src="/static/bot-icon.jpg" alt="Alpha AI" class="w-12 h-12 rounded-full mb-2">
+            <h1 class="text-lg font-bold text-blue-400">Alpha AI</h1>
+            <p id="welcome-text" class="text-sm text-gray-400 mt-1"></p>
+        </div>
+        
+        <button id="new-chat" class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg mb-4 transition-colors duration-200">
+            <i class=" mr-2"></i> New Chat
+        </button>
+        
+        <div id="chat-history" class="flex-1 overflow-y-auto space-y-2"></div>
+        
+        
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-5">
+                    <img src="/static/user-icon.jpg" alt="User" class="w-10 h-10 rounded-full">
+                    <span id="username" class="text-sm font-medium"></span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="https://www.instagram.com/rkm_pvt/" target="_blank" 
+                   class="action-btn relative text-gray-400 hover:text-pink-500 transition-colors duration-200">
+                    <i class="fab fa-instagram text-xl"></i>
+                    <span class="tooltip">Follow on Instagram</span>
+                </a>
+                    <button id="voice-toggle" class="action-btn relative text-gray-400 hover:text-white">
+                        <i class="fas fa-volume-up"></i>
+                        <span class="tooltip">Toggle Voice</span>
+                    </button>
+                    <button id="theme-toggle" class="action-btn relative text-gray-400 hover:text-white">
+                        <i class="fas fa-moon"></i>
+                        <span class="tooltip">Toggle Theme</span>
+                    </button>
+                    <button id="exit-app" class="action-btn relative text-gray-400 hover:text-red-400">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="tooltip">Exit Application</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Chat Area -->
+    <div class="flex-1 flex flex-col ml-64 transition-all duration-300" id="main-content">
+        <div id="chat-messages" class="flex-1 overflow-y-auto p-6 space-y-4">
+            <!-- Messages will be added here -->
+        </div>
+        
+        <div class="bg-black p-4 border-t border-gray-800">
+            <div class="relative">
+                <textarea 
+                    id="user-input" 
+                    class="w-full bg-black -white rounded-lg pl-4 pr-10 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Type your message..."
+                    rows="1"
+                ></textarea>
+                <button 
+                    id="send-message" 
+                    class="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-400 hover:text-blue-300"
+                >
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+                <!-- Add this button next to the send button in the textarea container -->
+                <button 
+                id="mic-button" 
+                class="absolute right-12 top-1/2 transform -translate-y-1/2 text-blue-400 hover:text-blue-300"
+                >
+                <i class="fas fa-microphone"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="spotify-container">
+            <!-- Toggle Button -->
+            <button id="toggle-player">
+                <i class="fas fa-music"></i>
+            </button>
+        
+            <!-- Player Panel -->
+            <div class="spotify-player">
+                <div class="player-content">
+                    <!-- Album Art -->
+                    <div class="album-art-container">
+                        <img id="album-art" class="album-art" src="/static/placeholder-album.jpg" alt="Album Art">
+                        <div class="loading" style="display: none;">
+                            <i class="fas fa-spinner"></i>
+                        </div>
+                    </div>
+        
+                    <!-- Track Info -->
+                    <div class="track-info">
+                        <button id="like-button" class="like-button">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <div class="track-name" id="track-name">Not Playing</div>
+                        <div class="artist-name" id="artist-name">No Artist</div>
+                        <div class="album-name" id="album-name">No Album</div>
+                    </div>
+        
+                    <!-- Progress Bar -->
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill"></div>
+                        </div>
+                        <div class="time-info">
+                            <span id="current-time">0:00</span>
+                            <span id="total-time">0:00</span>
+                        </div>
+                    </div>
+        
+                    <!-- Controls -->
+                    <div class="controls">
+                        <button id="prev-track" class="control-button secondary">
+                            <i class="fas fa-backward"></i>
+                        </button>
+                        <button id="play-pause" class="control-button primary">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <button id="next-track" class="control-button secondary">
+                            <i class="fas fa-forward"></i>
+                        </button>
+                    </div>
+        
+                    <!-- Error Message -->
+                    <div class="error-message" id="error-message"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
